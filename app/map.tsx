@@ -1,17 +1,15 @@
 import { PixelButton } from "@/components/pixel-button";
+import { useGameProgress } from "@/context/GameProgressContext";
 import { useRouter } from "expo-router";
 import { ImageBackground, StyleSheet, View } from "react-native";
 
-type MapScreenProps = {
-  level1Completed?: boolean;
-};
-
-export default function MapScreen({ level1Completed = false }: MapScreenProps) {
+export default function MapScreen() {
   const router = useRouter();
+  const { level1Completed, level2Completed } = useGameProgress();
 
   return (
     <ImageBackground
-      source={require("@/assets/images/map.png")}
+      source={require("@/assets/images/scenes/map.png")}
       style={styles.background}
       resizeMode="cover"
     >
@@ -31,7 +29,7 @@ export default function MapScreen({ level1Completed = false }: MapScreenProps) {
 
         <PixelButton
           title="3"
-          disabled={!level1Completed}
+          disabled={!level2Completed}
           onPress={() => router.push("/level-3")}
           style={styles.level3}
         />
@@ -40,9 +38,9 @@ export default function MapScreen({ level1Completed = false }: MapScreenProps) {
   );
 }
 
-const levelButton = { 
-  backgroundColor: "black", 
-  padding: 5
+const levelButton = {
+  backgroundColor: "black",
+  padding: 5,
 };
 
 const styles = StyleSheet.create({

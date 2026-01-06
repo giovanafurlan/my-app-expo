@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "my-app-expo",
-    "slug": "my-app-expo",
+    "name": "City of Feelings",
+    "slug": "city-of-feelings",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
